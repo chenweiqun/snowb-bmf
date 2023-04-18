@@ -1,7 +1,6 @@
 import React, { FunctionComponent, useRef } from 'react'
 import { observer } from 'mobx-react'
 import { useSnackbar } from 'notistack'
-import * as Sentry from '@sentry/react'
 import Button from '@material-ui/core/Button'
 import { useWorkspace } from 'src/store/hooks'
 
@@ -34,7 +33,6 @@ const ButtonOpen: FunctionComponent<ButtonOpenProps> = (
         addProject(project)
       } catch (e) {
         console.log(e)
-        Sentry.captureException(e)
         enqueueSnackbar((e as Error).toString(), { variant: 'error' })
       }
     })

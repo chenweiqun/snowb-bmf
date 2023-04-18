@@ -1,7 +1,6 @@
 import React, { useState, FunctionComponent } from 'react'
 import { observer } from 'mobx-react'
 import { useSnackbar } from 'notistack'
-import * as Sentry from '@sentry/react'
 
 import Button from '@material-ui/core/Button'
 import List from '@material-ui/core/List'
@@ -51,7 +50,6 @@ const FontFamily: FunctionComponent<unknown> = () => {
         .catch((e) => {
           setLoading(false)
           enqueueSnackbar(e.message, { variant: 'error' })
-          Sentry.captureException(e)
         })
     })
   }
